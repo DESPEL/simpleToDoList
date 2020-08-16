@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Container, Grid, Box, Typography, makeStyles } from '@material-ui/core'
 import green from '@material-ui/core/colors/green'
 import Done from '@material-ui/icons/Done'
@@ -8,9 +7,10 @@ import NoteCard from '../components/noteCard'
 import NewNoteCard from '../components/newNoteCard'
 
 function loadNotes(update) {
-  const ids = JSON.parse(localStorage.getItem('note-ids')).reverse()
+  let ids = JSON.parse(localStorage.getItem('note-ids'))
   if (ids === null) return
   const noteCards = []
+  ids = ids.reverse()
 
   ids.forEach((id) => {
     const data = JSON.parse(localStorage.getItem(`note-${id}`))

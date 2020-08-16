@@ -5,7 +5,9 @@ import { ThemeProvider, createMuiTheme, CssBaseline, Card, CardContent } from '@
 import {
   BrowserRouter,
   Switch,
-  Route
+  Route,
+  HashRouter,
+  Link
 } from 'react-router-dom'
 
 import './App.css'
@@ -15,15 +17,15 @@ import List from './pages/list'
 const theme = createMuiTheme({
   palette: {
     background: {
-      paper:'#222',
+      paper: '#222',
       default: '#000',
     },
     text: {
       primary: '#fff',
     },
     common: {
-        black: "#fff",
-        white: "#000",
+      black: "#fff",
+      white: "#000",
     }
   },
   typography: {
@@ -39,11 +41,11 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Switch>
-            <Route exact path="/" render={(props) => <List {...props} key={1}/>}>
+            <Route exact path="/" render={(props) => <List {...props} key={1} />}>
             </Route>
-            <Route exact path="/edit/:noteName" render={(props) => <Edit {...props} key={2}/>}>
+            <Route exact path="/edit/:noteName" render={(props) => <Edit {...props} key={2} />}>
             </Route>
           </Switch>
         </BrowserRouter>

@@ -43,7 +43,7 @@ export default function NoteCard(props) {
   const history = useHistory()
 
   const openEditPage = () => {
-    history.push(`/edit/${id}`, { id: id })
+    history.push(`/edit/${id}`, {id: id})
   }
 
   const toggleNoteStatus = (e) => {
