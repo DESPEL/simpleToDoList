@@ -47,15 +47,12 @@ export default function NoteCard(props) {
   }
 
   const toggleNoteStatus = (e) => {
-    console.log('asdfasdjkfajk')
     e.stopPropagation()
     let data = JSON.parse(localStorage.getItem(`note-${id}`))
     data.completed = !isChecked
     localStorage.setItem(`note-${id}`, JSON.stringify(data))
     setChecked(!isChecked)
-    if (props.update) {
-      props.update(id)
-    }
+    props.update(`${id},${!isChecked}`)
   }
 
   return (

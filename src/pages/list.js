@@ -10,7 +10,6 @@ import NewNoteCard from '../components/newNoteCard'
 function loadNotes(update) {
   const ids = JSON.parse(localStorage.getItem('note-ids')).reverse()
   if (ids === null) return
-  console.log(ids)
   const noteCards = []
 
   ids.forEach((id) => {
@@ -43,7 +42,7 @@ const useStyles = makeStyles({
 export default function List(props) {
   const classes = useStyles()
 
-  const [, setDummyState] = useState(false)
+  const [, setDummyState] = useState('.')
 
   return (
     <div>
